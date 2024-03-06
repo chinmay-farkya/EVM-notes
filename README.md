@@ -11,9 +11,13 @@ the implementation will maintain this mapping in a modified Merkle Patricia tree
 requires a simple database backend that maintains a mapping of byte arrays to byte arrays; we name this underlying database the state database. As a whole, the state is the sum total of database relationships in the state database.
 2. The account state comprises the following four fields:
 nonce: the number of transactions sent from this address or, in the case of accounts with associated code, the number of contract-creations made by this account.
+
 balance  : the number of Wei owned by this address.
+
 storageRoot: A 256-bit hash of the root node of a Merkle Patricia tree that encodes the storage contents of the account (a mapping between 256-bit integer values), encoded into the trie as a mapping from the Keccak 256-bit hash of the 256-bit integer keys to the RLP-encoded 256-bit integer values.
+
 codeHash: The hash of the EVM code of this account—this is the code that gets executed should this address receive a message call. All such code fragments are contained in the state database under their corresponding hashes for later retrieval. If the codeHash field is the Keccak-256 hash of the empty string, i.e. σ[a]c = KEC(), then the node represents a simple account
+
 3. An account is empty when it has no code, zero nonce and zero balance. Even callable precompiled contracts can have an empty account state. This is because their account states do not usually contain the code describing its behavior
 4. A transaction (formally, T) is a single cryptographically-signed instruction constructed by an actor externally to the scope of Ethereum. The sender of a transaction cannot be a contract. While it is assumed that the ultimate external actor will be human in nature, software tools will be used in its construction and dissemination
 5. EIP-2718 introduced the notion of different txn types. As of the Berlin version of
