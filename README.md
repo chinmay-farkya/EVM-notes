@@ -1,5 +1,5 @@
 # EVM
-This is an accumulated list of pointers about the Ethereum network and the low-level EVM execution. Note that some parts of this information might be outdated/ wrong : these are based on my understanding of the concepts. 
+This is an accumulated list of pointers about the Ethereum network and the low-level EVM execution. Note that some parts of this information might be outdated/ wrong : these are based on my understanding of the concepts. Also, the pointers are not too structured.
 
 Feel free to add or correct me on anything. Please spare the numbering and formatting, I moved it from my Notion page.
 
